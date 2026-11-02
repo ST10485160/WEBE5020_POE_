@@ -1,34 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
     <url>
-        <loc>https://YOUR-LIVE-WEBSITE-ADDRESS/index.html</loc>
-        <priority>1.0</priority>
+        <loc>https://st10485160.github.io/WEBE5020_POE_/</loc>
     </url>
-
     <url>
-        <loc>https://YOUR-LIVE-WEBSITE-ADDRESS/about.html</loc>
-        <priority>0.8</priority>
+        <loc>https://st10485160.github.io/WEBE5020_POE_/about.html</loc>
     </url>
-
     <url>
-        <loc>https://YOUR-LIVE-WEBSITE-ADDRESS/academics.html</loc>
-        <priority>0.8</priority>
+        <loc>https://st10485160.github.io/WEBE5020_POE_/academics.html</loc>
     </url>
-
     <url>
-        <loc>https://YOUR-LIVE-WEBSITE-ADDRESS/admissions.html</loc>
-        <priority>0.8</priority>
+        <loc>https://st10485160.github.io/WEBE5020_POE_/admissions.html</loc>
     </url>
-
     <url>
-        <loc>https://YOUR-LIVE-WEBSITE-ADDRESS/enquiry.html</loc>
-        <priority>0.7</priority>
+        <loc>https://st10485160.github.io/WEBE5020_POE_/enquiry.html</loc>
     </url>
-
     <url>
-        <loc>https://YOUR-LIVE-WEBSITE-ADDRESS/contact.html</loc>
-        <priority>0.7</priority>
+        <loc>https://st10485160.github.io/WEBE5020_POE_/contact.html</loc>
     </url>
-
 </urlset>

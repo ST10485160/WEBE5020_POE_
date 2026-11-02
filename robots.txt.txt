@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://YOUR-LIVE-WEBSITE-ADDRESS/sitemap.xml
+Sitemap: https://st10485160.github.io/WEBE5020_POE_/sitemap.xml
