@@ -1,0 +1,125 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Submit an admissions enquiry to Marconi Beam Secondary School in Cape Town.">
+    <meta name="keywords" content="school admissions enquiry, enrolment enquiry, Marconi Beam Secondary School">
+    <meta name="author" content="Marconi Beam Secondary School">
+    <title>Admissions Enquiry | Marconi Beam Secondary School</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+    <h1>Marconi Beam Secondary School</h1>
+    <p>Empowering Learners for Tomorrow</p>
+</header>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="academics.html">Academics</a>
+    <a href="admissions.html">Admissions</a>
+    <a href="enquiry.html">Enquiry</a>
+    <a href="contact.html">Contact</a>
+</nav>
+
+<main>
+    <section>
+        <h2>Admissions Enquiry Form</h2>
+        <p>Complete this form to enquire about enrolling a learner at our school.</p>
+
+        <form id="enquiryForm" novalidate>
+
+            <label for="learnerName">Learner's Full Name:</label>
+            <input type="text" id="learnerName" name="learnerName" required>
+            <small class="error" id="learnerNameError"></small>
+
+            <label for="parentName">Parent or Guardian's Full Name:</label>
+            <input type="text" id="parentName" name="parentName" required>
+            <small class="error" id="parentNameError"></small>
+
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" name="email" required>
+            <small class="error" id="emailError"></small>
+
+            <label for="phone">Contact Number:</label>
+            <input type="tel" id="phone" name="phone" required>
+            <small class="error" id="phoneError"></small>
+
+            <label for="grade">Grade Applying For:</label>
+            <select id="grade" name="grade" required>
+                <option value="">Select a grade</option>
+                <option value="Grade 8">Grade 8</option>
+                <option value="Grade 9">Grade 9</option>
+                <option value="Grade 10">Grade 10</option>
+                <option value="Grade 11">Grade 11</option>
+                <option value="Grade 12">Grade 12</option>
+            </select>
+            <small class="error" id="gradeError"></small>
+
+            <label for="message">Additional Information:</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+            <small class="error" id="messageError"></small>
+
+            <button type="submit">Submit Enquiry</button>
+
+            <p id="successMessage" role="status" aria-live="polite"></p>
+        </form>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2026 Marconi Beam Secondary School. All rights reserved.</p>
+</footer>
+
+<script>
+document.getElementById("enquiryForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const fields = ["learnerName", "parentName", "email", "phone", "grade", "message"];
+    let valid = true;
+
+    fields.forEach(function(field) {
+        document.getElementById(field + "Error").textContent = "";
+    });
+
+    document.getElementById("successMessage").textContent = "";
+
+    fields.forEach(function(field) {
+        const input = document.getElementById(field);
+
+        if (input.value.trim() === "") {
+            document.getElementById(field + "Error").textContent = "This field is required.";
+            valid = false;
+        }
+    });
+
+    const email = document.getElementById("email").value.trim();
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (email !== "" && !emailPattern.test(email)) {
+        document.getElementById("emailError").textContent = "Please enter a valid email address.";
+        valid = false;
+    }
+
+    const phone = document.getElementById("phone").value.trim();
+    const phonePattern = /^[0-9+\s()-]{7,20}$/;
+
+    if (phone !== "" && !phonePattern.test(phone)) {
+        document.getElementById("phoneError").textContent = "Please enter a valid contact number.";
+        valid = false;
+    }
+
+    if (valid) {
+        document.getElementById("successMessage").textContent =
+            "Your enquiry has passed validation. Thank you for your interest!";
+        this.reset();
+    }
+});
+</script>
+
+</body>
+</html>

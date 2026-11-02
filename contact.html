@@ -1,86 +1,124 @@
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact Us - Marconi Beam Secondary School</title>
-
-<link rel="stylesheet" href="css/style.css">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact Marconi Beam Secondary School for general enquiries, academic information and assistance.">
+    <meta name="keywords" content="contact Marconi Beam Secondary School, school contact, Cape Town school">
+    <meta name="author" content="Marconi Beam Secondary School">
+    <title>Contact Us | Marconi Beam Secondary School</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
 
 <header>
-
-<h1>Marconi Beam Secondary School</h1>
-
-<p>Empowering Learners for Tomorrow</p>
-
+    <h1>Marconi Beam Secondary School</h1>
+    <p>Empowering Learners for Tomorrow</p>
 </header>
 
 <nav>
-
-<a href="index.html">Home</a>
-
-<a href="about.html">About Us</a>
-
-<a href="academics.html">Academics</a>
-
-<a href="admissions.html">Admissions</a>
-
-<a href="contact.html">Contact Us</a>
-
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="academics.html">Academics</a>
+    <a href="admissions.html">Admissions</a>
+    <a href="enquiry.html">Enquiry</a>
+    <a href="contact.html">Contact</a>
 </nav>
 
 <main>
+    <section>
+        <h2>Contact Us</h2>
+        <p>Have a question? Complete the form below and let us know how we can assist you.</p>
 
-<section>
+        <form id="contactForm" novalidate>
 
-<h2>Contact Information</h2>
+            <label for="fullName">Full Name:</label>
+            <input type="text" id="fullName" name="fullName" required>
+            <small class="error" id="fullNameError"></small>
 
-<p><strong>Email:</strong> info@marconibeamsecondary.co.za</p>
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" name="email" required>
+            <small class="error" id="emailError"></small>
 
-<p><strong>Phone:</strong> 021 123 4567</p>
+            <label for="phone">Contact Number:</label>
+            <input type="tel" id="phone" name="phone" required>
+            <small class="error" id="phoneError"></small>
 
-<p><strong>Address:</strong> 123 Education Avenue, Cape Town, South Africa</p>
+            <label for="subject">Subject:</label>
+            <select id="subject" name="subject" required>
+                <option value="">Select a subject</option>
+                <option value="General Enquiry">General Enquiry</option>
+                <option value="Admissions">Admissions</option>
+                <option value="Academic Information">Academic Information</option>
+                <option value="School Activities">School Activities</option>
+                <option value="Other">Other</option>
+            </select>
+            <small class="error" id="subjectError"></small>
 
-</section>
+            <label for="message">Your Message:</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+            <small class="error" id="messageError"></small>
 
-<section>
+            <button type="submit">Send Message</button>
 
-<h2>School Hours</h2>
-
-<ul>
-<li>Monday – Friday: 07:30 – 15:00</li>
-<li>Saturday: Closed</li>
-<li>Sunday: Closed</li>
-</ul>
-
-</section>
-
-<section>
-
-<h2>Sports and Activities</h2>
-
-<img src="images/sports-field.jpg" alt="Sports Field">
-
-<p>
-Our learners participate in a variety of sporting and cultural activities
-that promote teamwork, leadership and personal development.
-</p>
-
-</section>
-
+            <p id="successMessage" role="status" aria-live="polite"></p>
+        </form>
+    </section>
 </main>
 
 <footer>
-
-<p>© 2026 Marconi Beam Secondary School</p>
-
+    <p>&copy; 2026 Marconi Beam Secondary School. All rights reserved.</p>
 </footer>
 
-</body>
+<script>
+document.getElementById("contactForm").addEventListener("submit", function(event) {
+    event.preventDefault();
 
+    const fields = ["fullName", "email", "phone", "subject", "message"];
+    let valid = true;
+
+    fields.forEach(function(field) {
+        document.getElementById(field + "Error").textContent = "";
+    });
+
+    document.getElementById("successMessage").textContent = "";
+
+    fields.forEach(function(field) {
+        const input = document.getElementById(field);
+
+        if (input.value.trim() === "") {
+            document.getElementById(field + "Error").textContent =
+                "This field is required.";
+            valid = false;
+        }
+    });
+
+    const email = document.getElementById("email").value.trim();
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (email !== "" && !emailPattern.test(email)) {
+        document.getElementById("emailError").textContent =
+            "Please enter a valid email address.";
+        valid = false;
+    }
+
+    const phone = document.getElementById("phone").value.trim();
+    const phonePattern = /^[0-9+\s()-]{7,20}$/;
+
+    if (phone !== "" && !phonePattern.test(phone)) {
+        document.getElementById("phoneError").textContent =
+            "Please enter a valid contact number.";
+        valid = false;
+    }
+
+    if (valid) {
+        document.getElementById("successMessage").textContent =
+            "Your message has passed validation. Thank you for contacting us!";
+        this.reset();
+    }
+});
+</script>
+
+</body>
 </html>

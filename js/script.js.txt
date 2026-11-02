@@ -1,0 +1,53 @@
+
+// 1. ACCORDION
+document.querySelectorAll(".accordion-button").forEach(function(button) {
+    button.addEventListener("click", function() {
+        const content = this.nextElementSibling;
+        const isOpen = content.style.display === "block";
+
+        content.style.display = isOpen ? "none" : "block";
+        this.setAttribute("aria-expanded", !isOpen);
+    });
+});
+
+// 2. SEARCH FUNCTION
+const searchInput = document.getElementById("schoolSearch");
+
+if (searchInput) {
+    searchInput.addEventListener("input", function() {
+        const searchText = this.value.toLowerCase();
+
+        document.querySelectorAll(".searchable-item").forEach(function(item) {
+            const text = item.textContent.toLowerCase();
+            item.style.display = text.includes(searchText) ? "" : "none";
+        });
+    });
+}
+
+// 3. PHOTO GALLERY LIGHTBOX
+const galleryImages = document.querySelectorAll(".gallery-image");
+const lightbox = document.getElementById("lightbox");
+const lightboxImage = document.getElementById("lightboxImage");
+const closeLightbox = document.getElementById("closeLightbox");
+
+galleryImages.forEach(function(image) {
+    image.addEventListener("click", function() {
+        lightboxImage.src = this.src;
+        lightboxImage.alt = this.alt;
+        lightbox.style.display = "flex";
+    });
+});
+
+if (closeLightbox) {
+    closeLightbox.addEventListener("click", function() {
+        lightbox.style.display = "none";
+    });
+}
+
+if (lightbox) {
+    lightbox.addEventListener("click", function(event) {
+        if (event.target === lightbox) {
+            lightbox.style.display = "none";
+        }
+    });
+}

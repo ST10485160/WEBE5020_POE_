@@ -1,86 +1,155 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Marconi Beam Secondary School</title>
-
-<link rel="stylesheet" href="css/style.css">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Discover Marconi Beam Secondary School in Cape Town. Explore our academic programmes, admissions, school activities and educational opportunities.">
+    <meta name="keywords" content="Marconi Beam Secondary School, Cape Town school, secondary education, school admissions, academic programmes">
+    <meta name="author" content="Marconi Beam Secondary School">
+    <title>Marconi Beam Secondary School | Quality Education in Cape Town</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
+<a class="skip-link" href="#content">Skip to main content</a>
 
-<header>
-
-<h1>Marconi Beam Secondary School</h1>
-
-<p>Empowering Learners for Tomorrow</p>
-
+<header class="site-header">
+<div class="inner">
+<p class="site-title">Marconi Beam Secondary School</p>
+<p class="tagline">Empowering Learners for Tomorrow</p>
+</div>
 </header>
 
-<nav>
-
-<a href="index.html">Home</a>
-
-<a href="about.html">About Us</a>
-
-<a href="academics.html">Academics</a>
-
-<a href="admissions.html">Admissions</a>
-
-<a href="contact.html">Contact Us</a>
-
+<nav class="main-nav" aria-label="Main navigation">
+<ul>
+<li><a href="index.html" aria-current="page">Home</a></li>
+<li><a href="about.html">About Us</a></li>
+<li><a href="academics.html">Academics</a></li>
+<li><a href="admissions.html">Admissions</a></li>
+<li><a href="enquiry.html">Enquiry</a></li>
+<li><a href="contact.html">Contact Us</a></li>
+</ul>
 </nav>
 
-<main>
-
+<main id="content">
 <section>
-
-<h2>Welcome to Marconi Beam Secondary School</h2>
-
-<img src="images/school-building.jpg" alt="School Building">
-
+<h1>Welcome to Marconi Beam Secondary School</h1>
+<img src="images/school-building.jpg" alt="Front of the Marconi Beam Secondary School main building">
 <p>
-
 Marconi Beam Secondary School is committed to providing quality education,
 academic excellence and leadership development. Our school creates a
 positive learning environment where learners can reach their full
 potential and prepare for future success.
-
 </p>
-
+</section>
+<section>
+<h2>Why Choose Our School?</h2>
+<ul>
+<li>Qualified and Experienced Educators</li>
+<li>Modern Learning Environment</li>
+<li>Academic Excellence</li>
+<li>Sports and Cultural Activities</li>
+<li>Technology Enhanced Learning</li>
+</ul>
 </section>
 
+<!-- SEARCH FEATURE -->
 <section>
+    <h2>Search Our School Website</h2>
+    <input type="search" id="schoolSearch"
+           placeholder="Search school information..."
+           aria-label="Search school information">
+</section>
 
-<h2>Why Choose Our School?</h2>
+<!-- ACCORDION FEATURE -->
+<section>
+    <h2>Frequently Asked Questions</h2>
 
-<ul>
+    <div class="searchable-item">
+        <button class="accordion-button" aria-expanded="false">
+            What grades does the school offer?
+        </button>
+        <div class="accordion-content">
+            <p>Marconi Beam Secondary School offers Grades 8 to 12.</p>
+        </div>
+    </div>
 
-<li>Qualified and Experienced Educators</li>
+    <div class="searchable-item">
+        <button class="accordion-button" aria-expanded="false">
+            What subjects are available?
+        </button>
+        <div class="accordion-content">
+            <p>Subjects include Mathematics, Physical Sciences,
+            Life Sciences, Accounting, Geography and Business Studies.</p>
+        </div>
+    </div>
 
-<li>Modern Learning Environment</li>
+    <div class="searchable-item">
+        <button class="accordion-button" aria-expanded="false">
+            How can parents enquire about admission?
+        </button>
+        <div class="accordion-content">
+            <p>Parents can complete our
+            <a href="enquiry.html">admissions enquiry form</a>.</p>
+        </div>
+    </div>
+</section>
 
-<li>Academic Excellence</li>
+<!-- PHOTO GALLERY -->
+<section>
+    <h2>School Photo Gallery</h2>
 
-<li>Sports and Cultural Activities</li>
+    <div class="gallery">
+        <img src="images/school-building.jpg"
+             alt="Marconi Beam Secondary School building"
+             class="gallery-image">
 
-<li>Technology Enhanced Learning</li>
+        <img src="images/students.jpg"
+             alt="Students at school"
+             class="gallery-image">
 
-</ul>
+        <img src="images/classroom.jpg"
+             alt="School classroom"
+             class="gallery-image">
 
+        <img src="images/computer-lab.jpg"
+             alt="School computer laboratory"
+             class="gallery-image">
+
+        <img src="images/sports-field.jpg"
+             alt="School sports field"
+             class="gallery-image">
+    </div>
+</section>
+
+<!-- IMAGE LIGHTBOX -->
+<div id="lightbox" class="lightbox" role="dialog"
+     aria-modal="true" aria-label="Enlarged photograph">
+    <button id="closeLightbox" aria-label="Close enlarged image">
+        &times;
+    </button>
+    <img id="lightboxImage" src="" alt="">
+</div>
+
+<!-- SCHOOL LOCATION MAP -->
+<section>
+    <h2>Find Us</h2>
+    <p>View the Marconi Beam area on the map.</p>
+
+    <iframe
+        src="https://maps.google.com/maps?q=Marconi%20Beam%2C%20Cape%20Town&t=&z=14&ie=UTF8&iwloc=&output=embed"
+        width="100%"
+        height="350"
+        style="border:0;"
+        loading="lazy"
+        title="Map showing the Marconi Beam area in Cape Town">
+    </iframe>
 </section>
 
 </main>
 
-<footer>
-
-<p>© 2026 Marconi Beam Secondary School</p>
-
+<footer class="site-footer">
+<p>&copy; 2026 Marconi Beam Secondary School</p>
 </footer>
-
+<script src="js/script.js"></script>
 </body>
-
 </html>

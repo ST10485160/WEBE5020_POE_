@@ -1,0 +1,223 @@
+/* Marconi Beam Secondary School - main stylesheet
+   Palette from the Part 1 proposal: maroon, white and gold.
+   Fonts from the proposal: Times New Roman (headings) and Arial (body). */
+
+:root {
+  --maroon: #6b1426;
+  --maroon-dark: #4a0d1a;
+  --gold: #c9a227;
+  --gold-light: #f3e6b3;
+  --ink: #2b1d20;
+  --page: #f7f5f2;
+  --white: #ffffff;
+  --line: #e2dcd3;
+  --radius: 6px;
+  --max: 1100px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--ink);
+  background: var(--page);
+}
+
+img { max-width: 100%; height: auto; display: block; }
+
+h1, h2, h3 {
+  font-family: "Times New Roman", Times, serif;
+  color: var(--maroon);
+  line-height: 1.2;
+}
+h1 { font-size: clamp(1.7rem, 4vw, 2.3rem); margin: 0 0 .75rem; }
+h2 { font-size: 1.6rem; margin: 0 0 .75rem; }
+h3 { font-size: 1.25rem; margin: 0 0 .5rem; }
+p { margin: 0 0 1rem; max-width: 70ch; }
+a { color: var(--maroon); }
+
+/* Accessibility helpers */
+.skip-link {
+  position: absolute; left: -999px; top: 0;
+  background: var(--gold); color: var(--ink);
+  padding: .6rem 1rem; z-index: 100;
+}
+.skip-link:focus { left: 0; }
+
+:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+
+/* Header */
+header.site-header {
+  background: var(--maroon);
+  color: var(--white);
+  padding: 1.5rem 1rem 1.25rem;
+  border-bottom: 5px solid var(--gold);
+}
+.site-header .inner { max-width: var(--max); margin: 0 auto; }
+.site-title {
+  font-family: "Times New Roman", Times, serif;
+  font-weight: bold;
+  font-size: clamp(1.6rem, 4vw, 2.5rem);
+  line-height: 1.2;
+  margin: 0;
+  max-width: none;
+}
+.site-header .tagline { margin: .25rem 0 0; color: var(--gold-light); }
+
+/* Navigation */
+nav.main-nav { background: var(--maroon-dark); }
+nav.main-nav ul {
+  list-style: none; margin: 0 auto; padding: 0;
+  max-width: var(--max);
+  display: flex; flex-wrap: wrap;
+}
+nav.main-nav li { margin: 0; }
+nav.main-nav a {
+  display: block;
+  padding: .85rem 1.1rem;
+  color: var(--white);
+  text-decoration: none;
+  border-bottom: 3px solid transparent;
+  transition: background .2s, border-color .2s;
+}
+nav.main-nav a:hover { background: var(--maroon); border-bottom-color: var(--gold); }
+nav.main-nav a[aria-current="page"] { border-bottom-color: var(--gold); font-weight: bold; }
+
+/* Layout */
+main { max-width: var(--max); margin: 0 auto; padding: 2rem 1rem 3rem; }
+
+main section {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-left: 5px solid var(--gold);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+main section img { border-radius: var(--radius); margin: 0 0 1rem; width: 100%; max-width: 640px; }
+
+ul, ol { padding-left: 1.4rem; }
+li { margin-bottom: .3rem; }
+
+/* Buttons */
+.btn, button {
+  display: inline-block;
+  font: inherit; font-weight: bold;
+  background: var(--maroon); color: var(--white);
+  border: 2px solid var(--maroon);
+  padding: .65rem 1.4rem;
+  border-radius: var(--radius);
+  cursor: pointer; text-decoration: none;
+  transition: background .2s, color .2s;
+}
+.btn:hover, button:hover { background: var(--gold); border-color: var(--gold); color: var(--ink); }
+
+/* Footer */
+footer.site-footer {
+  background: var(--maroon-dark);
+  color: var(--white);
+  text-align: center;
+  padding: 1.25rem 1rem;
+  border-top: 5px solid var(--gold);
+}
+footer.site-footer p { margin: 0 auto; }
+footer.site-footer a { color: var(--gold-light); }
+
+/* Tablet and mobile */
+@media (max-width: 768px) {
+  main { padding: 1.25rem .75rem 2rem; }
+  main section { padding: 1.1rem; }
+  nav.main-nav ul { flex-direction: column; }
+  nav.main-nav a { border-bottom: 1px solid var(--maroon); border-left: 3px solid transparent; }
+  nav.main-nav a:hover, nav.main-nav a[aria-current="page"] { border-left-color: var(--gold); border-bottom-color: var(--maroon); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
+}
+
+
+/* INTERACTIVE FEATURES */
+
+.accordion-button {
+    width: 100%;
+    padding: 15px;
+    background-color: #800000;
+    color: white;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 8px;
+}
+
+.accordion-button:hover {
+    background-color: #600000;
+}
+
+.accordion-content {
+    display: none;
+    padding: 15px;
+    background-color: #fff8e7;
+}
+
+#schoolSearch {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #800000;
+    border-radius: 5px;
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.gallery-image {
+    width: 180px;
+    height: 130px;
+    object-fit: cover;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+.gallery-image:hover {
+    opacity: 0.8;
+}
+
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.lightbox img {
+    max-width: 90%;
+    max-height: 85%;
+    object-fit: contain;
+}
+
+#closeLightbox {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 35px;
+    color: white;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
